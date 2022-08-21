@@ -3,8 +3,9 @@
 char *ft_strrchr(char *str, int c)
 {
   int i;
-  char *txt = NULL;
-
+  char *txt
+  
+  txt = NULL;
   i = 0;
   while (str[i])
   {
