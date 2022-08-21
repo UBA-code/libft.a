@@ -1,6 +1,9 @@
 #ifndef LIBFT_H
 #define LIBFT_H
 
+#include <unistd.h>
+#include <stdlib.>
+
 int ft_strlen(char *str);
 int ft_strlcpy(char *dest, char *src, int size);
 int ft_strlcat(char *dest, char *src, int size);
