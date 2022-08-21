@@ -1,20 +1,19 @@
 #include <unistd.h>
 #include "libft.h"
 
-char *ft_strchr(char *str, int c)
+char *ft_strrchr(char *str, int c)
 {
   int i;
-  char *txt;
+  char *txt = NULL;
 
   i = 0;
   while (str[i])
   {
     if (str[i] == c)
-    {
       txt = str + i;
-      return (txt);
-    }
     i++;
   }
-  return (NULL);
+  if (txt == NULL)
+    return (NULL);
+  return (txt);
 }

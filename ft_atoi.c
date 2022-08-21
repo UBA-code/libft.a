@@ -1,3 +1,5 @@
+#include "libft.h"
+
 void skip(char *str, int *signs, int *minus, int *nb)
 {
   int i;
