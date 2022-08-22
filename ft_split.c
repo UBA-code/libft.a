@@ -16,11 +16,6 @@ int char_count(const char *s, int c)
   return (size + 1);
 }
 
-int count_diff(int one, int two)
-{
-  return (one - two);
-}
-
 int *alloc_copy(char **final, char *s,int diff, int *x)
 {
   ++*x;
@@ -47,36 +42,28 @@ char **ft_split(char const *s, char c)
   {
     if (s[i] == c)
     {
-      if (alloc_copy(final_tab, (char *)s + j, count_diff(i, j), &x) == NULL)
+      if (alloc_copy(final_tab, (char *)s + j, i - j, &x) == NULL)
         return (NULL);
       j = ++i;
     }
   }
-  if (alloc_copy(final_tab, (char *)s + j, count_diff(i, j), &x) == NULL)
+  if (alloc_copy(final_tab, (char *)s + j, i - j, &x) == NULL)
     return (NULL);
   final_tab[x + 1] = '\0';
   return (final_tab);
 }
 
-/*
+#include <stdio.h>
 int main()
 {
   char str[] = "Hello,Guys,Welcome,home,everybody,slm,youssef,yassine,omar,zbi,tbonmok";
   char **s = ft_split(str, ',');
   int i = 0;
 
-    printf("%s,", s[0]);
-    printf("%s,", s[1]);
-    printf("%s,", s[2]);
-    printf("%s,", s[3]);
-    printf("%s,", s[4]);
-    printf("%s,", s[5]);
-    printf("%s", s[6]);
-    
   while (s[i])
   {
     printf("%s, ", s[i]);
     i++;
   }
   return 0;
-}*/
+}
