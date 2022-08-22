@@ -56,7 +56,7 @@ char **ft_split(char const *s, char c)
 #include <stdio.h>
 int main()
 {
-  char str[] = "Hello,Guys,Welcome,home,everybody,slm,youssef,yassine,omar,zbi,tbonmok";
+  char str[] = "Hello,Guys,Welcome,home,everybody,slm,youssef,yassine,omar";
   char **s = ft_split(str, ',');
   int i = 0;
 
