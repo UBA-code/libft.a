@@ -52,7 +52,7 @@ char **ft_split(char const *s, char c)
   final_tab[x + 1] = '\0';
   return (final_tab);
 }
-
+/*
 #include <stdio.h>
 int main()
 {
@@ -66,4 +66,4 @@ int main()
     i++;
   }
   return 0;
-}
+}*/
