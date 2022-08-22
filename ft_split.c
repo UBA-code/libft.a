@@ -1,5 +1,4 @@
 #include "libft.h"
-#include "stdio.h"
 
 int char_count(const char *s, int c)
 {
