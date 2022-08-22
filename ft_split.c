@@ -59,7 +59,7 @@ int main()
   char str[] = "Hello,Guys,Welcome,home,everybody,slm,youssef,yassine,omar,zbi,tbonmok";
   char **s = ft_split(str, ',');
   int i = 0;
-  /*
+
     printf("%s,", s[0]);
     printf("%s,", s[1]);
     printf("%s,", s[2]);
@@ -67,7 +67,7 @@ int main()
     printf("%s,", s[4]);
     printf("%s,", s[5]);
     printf("%s", s[6]);
-    */
+    
   while (s[i])
   {
     printf("%s, ", s[i]);
