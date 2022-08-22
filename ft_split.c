@@ -17,13 +17,18 @@ int char_count(const char *s, int c)
   return (size + 1);
 }
 
-int *alloc_copy(char **final, char *s, int *i, int *j, int *x)
+int count_diff(int one, int two)
+{
+  return (one - two);
+}
+
+int *alloc_copy(char **final, char *s,int diff, int *x)
 {
   ++*x;
-  final[*x] = malloc(sizeof(char) * (*i - *j));
+  final[*x] = malloc(sizeof(char) * diff);
   if (final[*x] == NULL)
     return (NULL);
-  ft_strlcpy(final[*x], (char *)s + *j, *i - *j + 1);
+  ft_strlcpy(final[*x], (char *)s, diff + 1);
 }
 
 char **ft_split(char const *s, char c)
@@ -43,16 +48,17 @@ char **ft_split(char const *s, char c)
   {
     if (s[i] == c)
     {
-      if (alloc_copy(final_tab, (char *)s, &i, &j, &x) == NULL)
+      if (alloc_copy(final_tab, (char *)s + j, count_diff(i, j), &x) == NULL)
         return (NULL);
       j = ++i;
     }
   }
-  if (alloc_copy(final_tab, (char *)s, &i, &j, &x) == NULL)
+  if (alloc_copy(final_tab, (char *)s + j, count_diff(i, j), &x) == NULL)
     return (NULL);
   final_tab[x + 1] = '\0';
   return (final_tab);
 }
+
 /*
 int main()
 {
