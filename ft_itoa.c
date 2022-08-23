@@ -33,5 +33,6 @@ char *ft_itoa(int n)
   if (tab == NULL)
     return (NULL);
   ft_putnbr(n, tab, &i);
+  tab[++i] = '\0';
   return (tab);
 }
