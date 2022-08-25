@@ -4,7 +4,7 @@ void *ft_memcpy(void *dest, const void *src, size_t n)
 {
   char *dest_add;
   char *src_add;
-  int i;
+  size_t i;
 
   i = 0;
   dest_add = dest;

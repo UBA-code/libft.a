@@ -2,7 +2,7 @@
 
 void *ft_memccpy(void *dest, const void *src, int c, size_t n)
 {
-  int i;
+  size_t i;
   char *dest_add;
   char *src_add;
 

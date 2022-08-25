@@ -24,7 +24,6 @@ void  ft_putnbr(int nbr, char *tab, int *i)
 
 char *ft_itoa(int n)
 {
-  long nb;
   int i;
   char *tab;
 

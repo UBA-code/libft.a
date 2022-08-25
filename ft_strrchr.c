@@ -3,7 +3,7 @@
 char *ft_strrchr(char *str, int c)
 {
   int i;
-  char *txt
+  char *txt;
   
   txt = NULL;
   i = 0;

@@ -16,13 +16,14 @@ int char_count(const char *s, int c)
   return (size + 1);
 }
 
-int *alloc_copy(char **final, char *s,int diff, int *x)
+char *alloc_copy(char **final, char *s,int diff, int *x)
 {
   ++*x;
   final[*x] = malloc(sizeof(char) * diff);
   if (final[*x] == NULL)
     return (NULL);
   ft_strlcpy(final[*x], (char *)s, diff + 1);
+  return ("Allocation Succes");
 }
 
 char **ft_split(char const *s, char c)

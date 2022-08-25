@@ -3,7 +3,7 @@
 void ft_bzero(void *s, size_t n)
 {
   char *tab;
-  int i;
+  size_t i;
 
   i = 0;
   tab = s;

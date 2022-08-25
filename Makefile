@@ -4,17 +4,17 @@ SRCS = ft*.c
 MAIN = main.c
 NAME = libft.a
 
-all: libft.a
+all: $(NAME)
 
-libft.a:
+$(NAME):
 	$(CC) $(FLAGS) -c $(SRCS)
-		ar rcs libft.a *.o
+		ar rc libft.a *.o
 			ranlib libft.a
-				mv *.o ft*.c ../
-					$(CC) $(FLAGS) $(MAIN) -o prog -L. libft.a
 
 clean:
 	rm -f *.o
 
 fclean: clean
-	rm -f *.a
+	rm -f *.out
+
+re: fclean all
