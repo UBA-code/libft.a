@@ -15,6 +15,6 @@ clean:
 	rm -f *.o
 
 fclean: clean
-	rm -f *.out
+	rm -f *.a
 
 re: fclean all

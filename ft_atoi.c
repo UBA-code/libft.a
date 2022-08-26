@@ -22,7 +22,7 @@ void skip(char *str, int *signs, int *minus, int *nb)
   }
 }
 
-int atoi(const char *nptr)
+int ft_atoi(const char *nptr)
 {
   int minus;
   int signs;

@@ -11,7 +11,7 @@ int ft_strlcpy(char *dest, char *src, int size);
 int ft_strlcat(char *dest, char *src, int size);
 int ft_strncmp(char *str1, char *str2, int n);
 char *ft_strdup(char *s);
-int atoi(const char *nptr);
+int ft_atoi(const char *nptr);
 char *ft_strrchr(char *str, int c);
 char *ft_strchr(char *str, int c);
 char *ft_strnstr(char *haystack, char *needle, int len);
@@ -19,11 +19,11 @@ char *ft_strnstr(char *haystack, char *needle, int len);
 /* Type Functions */
 
 int ft_isalnum(int c);
-int isalpha(int c);
-int isdigit(int c);
-int isprint(int c);
-int toupper(int c);
-int tolower(int c);
+int ft_isalpha(int c);
+int ft_isdigit(int c);
+int ft_isprint(int c);
+int ft_toupper(int c);
+int ft_tolower(int c);
 
 /*  Memory Functions */
 
