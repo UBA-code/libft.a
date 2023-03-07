@@ -6,7 +6,7 @@
 /*   By: ybel-hac <ybel-hac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 12:46:24 by ybel-hac          #+#    #+#             */
-/*   Updated: 2023/03/07 11:23:38 by ybel-hac         ###   ########.fr       */
+/*   Updated: 2023/03/07 11:32:01 by ybel-hac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <fcntl.h>
 # include <limits.h>
 # include <stdint.h>
+# include "./gnl/get_next_line.h"
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -29,7 +30,6 @@ int		ft_isascii(int c);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
 size_t	ft_strlen(const char *s);
-size_t	get_str_len(const char *s);
 int		ft_atoi(const char *str);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
@@ -44,7 +44,6 @@ void	*ft_memchr(const void *s, int c, size_t n);
 char	*ft_strdup(const char *s1);
 void	*ft_calloc(size_t count, size_t size);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
-char	*ft_strjoin(char *s1, char const *s2);
 char	*ft_itoa(int n);
 char	**ft_split(char const *s, char c);
 char	*ft_strtrim(char const *s1, char const *set);
