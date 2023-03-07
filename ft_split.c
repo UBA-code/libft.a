@@ -1,70 +1,101 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ybel-hac <ybel-hac@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/08 20:25:07 by ybel-hac          #+#    #+#             */
+/*   Updated: 2023/03/07 11:11:24 by ybel-hac         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-int char_count(const char *s, int c)
+static	int	calc_element(const char *s, char sep, size_t *x, size_t *j)
 {
-  int i;
-  int size;
+	size_t	i;
+	size_t	len;
 
-  size = 0;
-  i = 0;
-  while (s[i])
-  {
-    if (s[i] == c)
-      size++;
-    i++;
-  }
-  return (size + 1);
+	*x = 0;
+	*j = 0;
+	i = 0;
+	len = 0;
+	if (!s)
+		return (0);
+	while (s[i])
+	{
+		if (s[i] != sep)
+		{
+			if (s[i + 1] == sep || s[i + 1] == '\0')
+				len++;
+		}
+		i++;
+	}
+	return (len);
 }
 
-char *alloc_copy(char **final, char *s,int diff, int *x)
+static	void	get_next_str(const char *str, char c, size_t *i, size_t *j)
 {
-  ++*x;
-  final[*x] = malloc(sizeof(char) * diff);
-  if (final[*x] == NULL)
-    return (NULL);
-  ft_strlcpy(final[*x], (char *)s, diff + 1);
-  return ("Allocation Succes");
+	*j = *i;
+	while (str[*i])
+	{
+		if (str[*i] == c)
+		{
+			++*i;
+			++*j;
+		}
+		else
+			break ;
+	}
 }
 
-char **ft_split(char const *s, char c)
+static int	substr_and_alloc_check(char **final_str, const char *s,
+				int j, int len)
 {
-  int i;
-  int j;
-  int x;
-  char **final_tab;
-
-  final_tab = malloc(sizeof(char*) * char_count((char *)s, c));
-  if (final_tab == NULL)
-    return (NULL);
-  i = -1;
-  j = 0;
-  x = -1;
-  while (s[++i])
-  {
-    if (s[i] == c)
-    {
-      if (alloc_copy(final_tab, (char *)s + j, i - j, &x) == NULL)
-        return (NULL);
-      j = ++i;
-    }
-  }
-  if (alloc_copy(final_tab, (char *)s + j, i - j, &x) == NULL)
-    return (NULL);
-  final_tab[x + 1] = '\0';
-  return (final_tab);
+	*final_str = ft_substr(s, j, len);
+	if (!final_str)
+		return (0);
+	return (1);
 }
-/*
-#include <stdio.h>
-int main()
-{
-  char str[] = "Hello,Guys,Welcome,home,everybody,slm,youssef,yassine,omar";
-  char **s = ft_split(str, ',');
-  int i = 0;
 
-  while (s[i])
-  {
-    printf("%s, ", s[i]);
-    i++;
-  }
-  return 0;
-}*/
+static char	**free_tab(char **tab, int x)
+{
+	int	i;
+
+	i = 0;
+	while (i < x)
+	{
+		free(tab[i]);
+		i++;
+	}
+	return (NULL);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**final_str;
+	size_t	i;
+	size_t	j;
+	size_t	x;
+
+	i = 0;
+	if (!s)
+		return (0);
+	final_str = ft_calloc(sizeof(char *), calc_element(s, c, &x, &j) + 1);
+	if (!final_str)
+		return (0);
+	get_next_str(s, c, &i, &j);
+	if (i-- == ft_strlen(s))
+		return ((char *[1]){NULL});
+	while (++i <= ft_strlen(s))
+	{
+		if (s[i] == c || s[i] == '\0')
+		{
+			if (!substr_and_alloc_check(&final_str[x++], s, j, i - j))
+				return (free_tab(final_str, --x));
+			get_next_str(s, c, &i, &j);
+		}
+	}
+	return (final_str);
+}

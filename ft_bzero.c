@@ -1,17 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ybel-hac <ybel-hac@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/07 16:32:22 by ybel-hac          #+#    #+#             */
+/*   Updated: 2022/10/20 17:32:21 by ybel-hac         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-void ft_bzero(void *s, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
-  char *tab;
-  size_t i;
-
-  i = 0;
-  tab = s;
-  while (i < n)
-  {
-    tab[i] = '\0';
-    i++;
-  }
+	if (n > 0)
+	{
+		ft_memset(s, '\0', n);
+	}
 }
-
-// this function need a check
